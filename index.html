@@ -15,6 +15,9 @@
     <a href="#home">Home</a>
     <a href="#shop">Shop</a>
     <a href="#about">About</a>
+    <button id="cart-button">
+      Bag (<span id="cart-count">0</span>)
+    </button>
   </nav>
 </header>
 
@@ -26,21 +29,33 @@
 
 <section class="shop" id="shop">
   <h2>NEW COLLECTION</h2>
+
   <div class="products">
     <article>
       <div class="product-image">R-L</div>
       <h3>Essential Hoodie</h3>
       <p>49,99 €</p>
+      <button onclick="addToCart('Essential Hoodie',49.99)">
+        Add to Bag
+      </button>
     </article>
+
     <article>
       <div class="product-image">R-L</div>
       <h3>Classic T-Shirt</h3>
       <p>24,99 €</p>
+      <button onclick="addToCart('Classic T-Shirt',24.99)">
+        Add to Bag
+      </button>
     </article>
+
     <article>
       <div class="product-image">R-L</div>
       <h3>Streetwear Pants</h3>
       <p>39,99 €</p>
+      <button onclick="addToCart('Streetwear Pants',39.99)">
+        Add to Bag
+      </button>
     </article>
   </div>
 </section>
@@ -48,6 +63,12 @@
 <section id="about">
   <h2>ABOUT RUE-LIBRÉ</h2>
   <p>Modern style. Minimal design. Individual identity.</p>
+</section>
+
+<section class="cart">
+  <h2>YOUR BAG</h2>
+  <div id="cart-items">Your bag is empty.</div>
+  <h3>Total: <span id="total">0.00 €</span></h3>
 </section>
 
 <footer>
