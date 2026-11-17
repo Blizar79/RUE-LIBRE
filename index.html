@@ -1,79 +1,121 @@
-
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RUE-LIBRÉ | Official Store</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>RUE-LIBRÉ — Luxury Streetwear</title>
+<meta name="description" content="RUE-LIBRÉ — Luxury Streetwear. Discover the new collection.">
+<meta name="theme-color" content="#0b0b0b">
+<link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="is-loading">
 
-<header>
-  <h1>RUE-LIBRÉ</h1>
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#shop">Shop</a>
-    <a href="#about">About</a>
-    <button id="cart-button">
-      Bag (<span id="cart-count">0</span>)
-    </button>
+<div class="loader" id="loader" aria-hidden="true"><span>RUE-LIBRÉ</span><i></i></div>
+
+<header class="header" id="header">
+  <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+  <a href="#/home" class="logo">RUE-LIBRÉ</a>
+  <nav class="nav" id="nav" aria-label="Main">
+    <a href="#/home" data-link="home">Home</a>
+    <a href="#/women" data-link="women">Women</a>
+    <a href="#/men" data-link="men">Men</a>
+    <a href="#/collections" data-link="collections">Collections</a>
+    <a href="#/about" data-link="about">About</a>
   </nav>
+  <button class="bag-btn" id="bagBtn" aria-label="Open shopping bag">BAG <b id="bagCount">0</b></button>
 </header>
 
-<section class="hero" id="home">
-  <p>THE NEW STREETWEAR ERA</p>
-  <h2>YOUR STYLE.<br>YOUR RULES.</h2>
-  <a href="#shop">DISCOVER NOW</a>
-</section>
+<main id="main">
+  <!-- HOME -->
+  <section class="view" id="view-home">
+    <div class="hero">
+      <div class="hero-img img-wrap"><img id="heroImg" alt="RUE-LIBRÉ campaign"></div>
+      <div class="hero-text">
+        <p class="eyebrow">Autumn / Winter 2026</p>
+        <h1><span class="line"><span>Liberté</span></span><span class="line"><span>en mouvement.</span></span></h1>
+        <a href="#/collections" class="btn btn-light">Discover Collection</a>
+      </div>
+    </div>
 
-<section class="shop" id="shop">
-  <h2>NEW COLLECTION</h2>
+    <div class="section">
+      <div class="section-head reveal"><h2>New Collections</h2><a href="#/collections" class="link">View all</a></div>
+      <div class="tiles" id="homeTiles"></div>
+    </div>
 
-  <div class="products">
-    <article>
-      <div class="product-image">R-L</div>
-      <h3>Essential Hoodie</h3>
-      <p>49,99 €</p>
-      <button onclick="addToCart('Essential Hoodie',49.99)">
-        Add to Bag
-      </button>
-    </article>
+    <div class="section">
+      <div class="section-head reveal"><h2>Selected Pieces</h2><a href="#/women" class="link">Shop all</a></div>
+      <div class="grid" id="homeProducts"></div>
+    </div>
 
-    <article>
-      <div class="product-image">R-L</div>
-      <h3>Classic T-Shirt</h3>
-      <p>24,99 €</p>
-      <button onclick="addToCart('Classic T-Shirt',24.99)">
-        Add to Bag
-      </button>
-    </article>
+    <div class="editorial">
+      <div class="img-wrap reveal"><img id="edImg" alt="RUE-LIBRÉ editorial"></div>
+      <div class="editorial-text reveal">
+        <p class="eyebrow">The Philosophy</p>
+        <h2>Designed in Paris.<br>Worn without rules.</h2>
+        <p>Heavy cottons, precise tailoring, quiet details. RUE-LIBRÉ makes pieces for people who move through the city on their own terms.</p>
+        <a href="#/about" class="btn btn-dark">Our Story</a>
+      </div>
+    </div>
+  </section>
 
-    <article>
-      <div class="product-image">R-L</div>
-      <h3>Streetwear Pants</h3>
-      <p>39,99 €</p>
-      <button onclick="addToCart('Streetwear Pants',39.99)">
-        Add to Bag
-      </button>
-    </article>
+  <!-- WOMEN / MEN -->
+  <section class="view" id="view-women">
+    <div class="page-title reveal"><p class="eyebrow">Shop</p><h1>Women</h1></div>
+    <div class="grid shop-grid" id="gridWomen"></div>
+  </section>
+  <section class="view" id="view-men">
+    <div class="page-title reveal"><p class="eyebrow">Shop</p><h1>Men</h1></div>
+    <div class="grid shop-grid" id="gridMen"></div>
+  </section>
+
+  <!-- COLLECTIONS -->
+  <section class="view" id="view-collections">
+    <div class="page-title reveal"><p class="eyebrow">Seasons</p><h1>Collections</h1></div>
+    <div class="tiles tiles-lg" id="collectionTiles"></div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="view" id="view-about">
+    <div class="page-title reveal"><p class="eyebrow">Maison</p><h1>About</h1></div>
+    <div class="editorial">
+      <div class="img-wrap reveal"><img id="aboutImg" alt="RUE-LIBRÉ atelier"></div>
+      <div class="editorial-text reveal">
+        <h2>Rue Libre — the free street.</h2>
+        <p>RUE-LIBRÉ was founded on a simple idea: luxury should feel effortless. We combine the discipline of European tailoring with the attitude of the street.</p>
+        <p>Every piece is cut from carefully selected fabrics, finished by hand and made to last beyond a single season.</p>
+        <p class="muted">Contact: <a href="mailto:contact@rue-libre.com" class="link">contact@rue-libre.com</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCT -->
+  <section class="view" id="view-product"><div id="productDetail"></div>
+    <div class="section"><div class="section-head reveal"><h2>You may also like</h2></div><div class="grid" id="relatedProducts"></div></div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="footer-top">
+    <div><h3>RUE-LIBRÉ</h3><p>Luxury streetwear.<br>Designed in Paris.</p></div>
+    <div><h4>Shop</h4><a href="#/women">Women</a><a href="#/men">Men</a><a href="#/collections">Collections</a></div>
+    <div><h4>Information</h4><a href="#/about">About</a><a href="#/about">Shipping &amp; Returns</a><a href="#/about">Care Guide</a></div>
+    <div><h4>Contact</h4><a href="mailto:contact@rue-libre.com">contact@rue-libre.com</a><a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a><a href="https://www.tiktok.com/" target="_blank" rel="noopener">TikTok</a><a href="https://www.pinterest.com/" target="_blank" rel="noopener">Pinterest</a></div>
   </div>
-</section>
-
-<section id="about">
-  <h2>ABOUT RUE-LIBRÉ</h2>
-  <p>Modern style. Minimal design. Individual identity.</p>
-</section>
-
-<section class="cart">
-  <h2>YOUR BAG</h2>
-  <div id="cart-items">Your bag is empty.</div>
-  <h3>Total: <span id="total">0.00 €</span></h3>
-</section>
-
-<footer>
-  © 2026 RUE-LIBRÉ
+  <div class="footer-bottom"><span>© <span id="year"></span> RUE-LIBRÉ. All rights reserved.</span><button class="link" id="toTop">Back to top ↑</button></div>
 </footer>
+
+<!-- CART -->
+<div class="overlay" id="overlay"></div>
+<aside class="drawer" id="drawer" aria-label="Shopping bag" aria-hidden="true">
+  <div class="drawer-head"><h3>Shopping Bag</h3><button id="closeBag" aria-label="Close bag">Close ✕</button></div>
+  <div class="drawer-body" id="cartItems"></div>
+  <div class="drawer-foot">
+    <div class="total"><span>Total</span><strong id="cartTotal">€0</strong></div>
+    <button class="btn btn-dark btn-full" id="checkoutBtn">Checkout (Demo)</button>
+    <p class="muted small" id="demoNote">Demo shop — no payment is processed.</p>
+  </div>
+</aside>
+<div class="toast" id="toast" role="status"></div>
 
 <script src="script.js"></script>
 </body>
